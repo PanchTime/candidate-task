@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+  test-task:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - XML_FILE=F000016EPD.xml
+      - OUTPUT_FILE=output.txt  # Bonus feature #3
+#      - FILTER_SETTINGS=/filter_config.json  # Bonus feature #2
+      # Conditional filters are for Bonus feature #1
+#      - CONDITIONAL_FILTERS__NODE_NAME=HistoricalPerformanceDetail/ReturnHistory
+#      - CONDITIONAL_FILTERS__TAG_NAME=Return
+#      - CONDITIONAL_FILTERS__ATTR_NAME=Type
+#      - CONDITIONAL_FILTERS__ATTR_VALUE=13
+    volumes:
+      - ./data:/data
+    command: ["python", "run.py", "-f", "F000016EPD.xml", "--filters", "/filter_config.json"]  # To run the task comment out XML_FILE variable in environment section
