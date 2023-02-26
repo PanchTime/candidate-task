@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `share_class`;
 DROP TABLE IF EXISTS `price`;
 DROP TABLE IF EXISTS `return`;
 DROP TABLE IF EXISTS `dividend`;
-DROP TABLE IF EXISTS `operation`;
+DROP TABLE IF EXISTS `net_asset`;
 
 CREATE TABLE fund (
 	fund_id INTEGER NOT NULL AUTO_INCREMENT,
@@ -63,8 +63,18 @@ CREATE TABLE dividend (
     PRIMARY KEY (dividend)
 );
 
+CREATE TABLE capital_gain (
+    capital_gain_id INTEGER NOT NULL AUTO_INCREMENT,
+    share_class_id INTEGER,
+    excluding_date DATE,
+    reinvest_date DATE,
+    long_term_gain DECIMAL(15,4),
+    total_capital_gain DECIMAL(15,4),
+    PRIMARY KEY (capital_gain_id)
+);
 
-CREATE TABLE operation (
+
+CREATE TABLE net_asset (
     operation_id INTEGER NOT NULL AUTO_INCREMENT,
     share_class_id INTEGER,
     end_date DATE,
