@@ -1,0 +1,13 @@
+{
+    "rules": [
+        {
+            "path": "/InvestmentVehicle",
+            "attr_name": "_Id"
+        },
+        {
+            "path": "/InvestmentVehicle/HistoricalPerformance/HistoricalPerformanceDetail/DistributionHistory/Dividend/DividendDetail/NonQualifiedDividend",
+            "text": true
+        }
+    ],
+    "output": "/data/output.json"
+}
