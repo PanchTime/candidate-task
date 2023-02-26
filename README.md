@@ -17,6 +17,7 @@ This is a test task for Grigori Panciohin. The task is to create an XML parser t
 - DEB-based Linux distribution
 - docker and docker-compose (Optional)
 - python >= 3.7
+- create `data` directory in the root and put the test XML file there
 
 ### Run with docker
 Make sure you have docker and docker-compose installed. Then run the following commands:
