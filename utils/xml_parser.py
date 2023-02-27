@@ -40,6 +40,7 @@ class XmlReader:
         self.filter_config = None
         self.root = None
         self.processed_elements = 0
+        self.writer = None
 
     def __enter__(self):
         self.load_xml_file()
