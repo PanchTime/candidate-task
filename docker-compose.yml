@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - XML_FILE=F000016EPD.xml
+#      - XML_FILE=F000016EPD.xml
 #      - OUTPUT_FILE=output.txt  # Bonus feature #3
 #      - FILTER_SETTINGS=/filter_config.json  # Bonus feature #2
       # Conditional filters are for Bonus feature #1
@@ -19,3 +19,5 @@ services:
     command: ["python", "run.py", "-f", "F000016EPD.xml"]
     # To run the script with filters file comment out previous line and uncomment the following line.
 #    command: ["python", "run.py", "-f", "F000016EPD.xml", "--filters", "/filter_config.json"]
+    # To run the script with output file comment out previous line and uncomment the following line.
+#    command: ["python", "run.py", "-f", "F000016EPD.xml", "--filters", "/filter_config.json", "-o", "output.txt"]

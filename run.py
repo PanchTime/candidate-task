@@ -42,6 +42,8 @@ if __name__ == '__main__':
                 formatter_class=argparse.ArgumentDefaultsHelpFormatter
             )
             parser.add_argument('--xml-file', '-f', type=str, help="Xml file name to process must be in data folder.")
+            parser.add_argument('--output-file', '-o',
+                                type=str, default=None, help="Output file path, supports txt format for now.")
             parser.add_argument('--filters', type=str, default=None, help="Json filter configuration file.")
 
             args = parser.parse_args()
@@ -49,8 +51,11 @@ if __name__ == '__main__':
             cfg = Configuration(
                 xml_file=args.xml_file,
                 filter_settings=args.filters,
+                output_file=args.output_file,
             )
-
+        except ValidationError as e:
+            logging.error("Failed to create configuration from command line arguments.")
+            raise e
         except Exception as e:
             logging.warning("Failed to load from command line. Using default values.")
             raise ValueError("Both env variables and command line arguments are missing.")

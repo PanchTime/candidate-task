@@ -42,8 +42,19 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 Run the parser:
+# Just printing the data
 ```bash
 python run.py --f ./data/F000016EPD.xml
+```
+
+# Printing the data and saving it to a file
+```bash
+python run.py --f F000016EPD.xml -o output.txt
+```
+
+# Printing the data and saving it to a file with filters
+```bash
+python run.py --f F000016EPD.xml -o output.txt -c filter_config.json
 ```
 
 ## Notes
